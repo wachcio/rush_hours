@@ -33,6 +33,9 @@ async function scrapeData() {
       let peakHour = !cells[indexOfPeakHour].startsWith('NORMALNE');
 
       result.push({ date, hour, nationalDemand, peakHour });
+      //   if (peakHour) {
+      //     result.push({ date, hour, nationalDemand, peakHour });
+      //   }
     }
   }
 
@@ -41,4 +44,9 @@ async function scrapeData() {
 
 scrapeData().then((data) => {
   console.log(data);
+
+  const peakHourOnly = data.filter((el) => {
+    return el.peakHour === true;
+  });
+  console.log({ peakHourOnly });
 });
