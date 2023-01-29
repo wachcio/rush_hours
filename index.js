@@ -45,8 +45,7 @@ async function scrapeData() {
 scrapeData().then((data) => {
   console.log(data);
 
-  const peakHourOnly = data.filter((el) => {
-    return el.peakHour === true;
-  });
+  const peakHourOnly = data.filter((el) => el.peakHour);
+
   console.log({ peakHourOnly });
 });
